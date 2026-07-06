@@ -44,29 +44,5 @@
       "description": "锁匠覆盖该区域"
     }
   },
-  "event_types": {},
-  "seed_data": {
-    "nodes": [
-      {"id": "ls-001", "type": "Locksmith", "name": "老王开锁", "attributes": {"name": "老王开锁", "phone": "13800001001", "location": {"lat": 39.9100, "lng": 116.4000}, "rating": 4.8, "skills": ["门锁", "车锁", "保险柜", "指纹锁"], "base_price": 80.0, "service_hours": "24小时"}},
-      {"id": "ls-002", "type": "Locksmith", "name": "急开锁王", "attributes": {"name": "急开锁王", "phone": "13800001002", "location": {"lat": 39.9200, "lng": 116.3900}, "rating": 4.5, "skills": ["门锁", "车锁", "卷帘门"], "base_price": 60.0, "service_hours": "08:00-23:00"}},
-      {"id": "ls-003", "type": "Locksmith", "name": "安全锁具专家", "attributes": {"name": "安全锁具专家", "phone": "13800001003", "location": {"lat": 39.9050, "lng": 116.4100}, "rating": 4.9, "skills": ["保险柜", "指纹锁", "门锁"], "base_price": 120.0, "service_hours": "09:00-20:00"}},
-      {"id": "ls-004", "type": "Locksmith", "name": "顺风锁行", "attributes": {"name": "顺风锁行", "phone": "13800001004", "location": {"lat": 31.2300, "lng": 121.4700}, "rating": 4.3, "skills": ["门锁", "车锁", "卷帘门", "保险柜"], "base_price": 70.0, "service_hours": "24小时"}},
-      {"id": "ls-005", "type": "Locksmith", "name": "浦东锁业", "attributes": {"name": "浦东锁业", "phone": "13800001005", "location": {"lat": 31.2200, "lng": 121.5400}, "rating": 4.6, "skills": ["门锁", "指纹锁"], "base_price": 90.0, "service_hours": "08:00-22:00"}},
-      {"id": "ls-006", "type": "Locksmith", "name": "恒通开锁", "attributes": {"name": "恒通开锁", "phone": "13800001006", "location": {"lat": 23.1250, "lng": 113.3300}, "rating": 4.2, "skills": ["门锁", "车锁", "卷帘门"], "base_price": 55.0, "service_hours": "07:00-24:00"}},
-      {"id": "ds-001", "type": "District", "name": "朝阳区", "attributes": {"name": "朝阳区", "city": "北京", "surcharge": 0.0}},
-      {"id": "ds-002", "type": "District", "name": "海淀区", "attributes": {"name": "海淀区", "city": "北京", "surcharge": 20.0}},
-      {"id": "ds-003", "type": "District", "name": "浦东新区", "attributes": {"name": "浦东新区", "city": "上海", "surcharge": 0.0}},
-      {"id": "ds-004", "type": "District", "name": "天河区", "attributes": {"name": "天河区", "city": "广州", "surcharge": 0.0}}
-    ],
-    "relations": [
-      {"id": "lr-001", "from_node": "ls-001", "to_node": "ds-001", "type": "COVERS", "weight": 1.0},
-      {"id": "lr-002", "from_node": "ls-001", "to_node": "ds-002", "type": "COVERS", "weight": 1.0},
-      {"id": "lr-003", "from_node": "ls-002", "to_node": "ds-001", "type": "COVERS", "weight": 1.0},
-      {"id": "lr-004", "from_node": "ls-003", "to_node": "ds-001", "type": "COVERS", "weight": 1.0},
-      {"id": "lr-005", "from_node": "ls-004", "to_node": "ds-003", "type": "COVERS", "weight": 1.0},
-      {"id": "lr-006", "from_node": "ls-005", "to_node": "ds-003", "type": "COVERS", "weight": 1.0},
-      {"id": "lr-007", "from_node": "ls-006", "to_node": "ds-004", "type": "COVERS", "weight": 1.0},
-      {"id": "lr-008", "from_node": "ls-002", "to_node": "ds-002", "type": "COVERS", "weight": 1.0}
-    ]
-  }
+  "event_types": {}
 }

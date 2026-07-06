@@ -6,7 +6,7 @@ from db.connection import SessionLocal, engine as db_engine, Base
 from models.node import Node
 from models.relation import Relation
 
-PLUGINS_DIR = Path(__file__).resolve().parent.parent / "plugins"
+SEED_DIR = Path(__file__).resolve().parent.parent / "data" / "seed"
 
 
 def run_seed():
@@ -17,11 +17,10 @@ def run_seed():
         if existing_nodes > 0:
             return
 
-        for filepath in PLUGINS_DIR.glob("*.json"):
+        for filepath in SEED_DIR.glob("*.json"):
             with open(filepath, "r", encoding="utf-8") as f:
-                plugin = json.load(f)
+                seed = json.load(f)
 
-            seed = plugin.get("seed_data", {})
             nodes_data = seed.get("nodes", [])
             relations_data = seed.get("relations", [])
 

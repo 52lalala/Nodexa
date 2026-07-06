@@ -52,47 +52,5 @@
       "description": "门店在售该商品"
     }
   },
-  "event_types": {},
-  "seed_data": {
-    "nodes": [
-      {"id": "store-001", "type": "Store", "name": "汪汪宠物生活馆", "attributes": {"address": "朝阳区建国路88号", "location": {"lat": 39.9087, "lng": 116.4716}, "rating": 4.8, "opening_hours": "09:00-21:00"}},
-      {"id": "store-002", "type": "Store", "name": "喵星球宠物", "attributes": {"address": "海淀区中关村大街15号", "location": {"lat": 39.9836, "lng": 116.3168}, "rating": 4.5, "opening_hours": "10:00-20:00"}},
-      {"id": "store-003", "type": "Store", "name": "爱宠大本营", "attributes": {"address": "西城区西单北大街100号", "location": {"lat": 39.9132, "lng": 116.3755}, "rating": 4.2, "opening_hours": "08:30-22:00"}},
-      {"id": "store-004", "type": "Store", "name": "优宠佳品", "attributes": {"address": "浦东新区陆家嘴环路1200号", "location": {"lat": 31.2357, "lng": 121.5058}, "rating": 4.6, "opening_hours": "09:00-21:30"}},
-      {"id": "store-005", "type": "Store", "name": "毛孩子乐园", "attributes": {"address": "徐汇区肇嘉浜路789号", "location": {"lat": 31.1992, "lng": 121.4453}, "rating": 4.0, "opening_hours": "09:30-20:30"}},
-      {"id": "store-006", "type": "Store", "name": "PET+ 精品店", "attributes": {"address": "天河区体育西路200号", "location": {"lat": 23.1291, "lng": 113.3245}, "rating": 4.7, "opening_hours": "10:00-22:00"}},
-      {"id": "store-007", "type": "Store", "name": "宠星荟", "attributes": {"address": "朝阳区望京街道10号", "location": {"lat": 39.9972, "lng": 116.4764}, "rating": 3.9, "opening_hours": "09:00-19:00"}},
-      {"id": "store-008", "type": "Store", "name": "动物城", "attributes": {"address": "静安区南京西路1688号", "location": {"lat": 31.2355, "lng": 121.4558}, "rating": 4.3, "opening_hours": "08:00-21:00"}},
-      {"id": "prod-001", "type": "Product", "name": "皇家幼犬粮 2kg", "attributes": {"category": "食品", "pet_type": "狗", "price": 168.0, "stock": 50, "brand": "皇家"}},
-      {"id": "prod-002", "type": "Product", "name": "渴望成猫粮 1.8kg", "attributes": {"category": "食品", "pet_type": "猫", "price": 258.0, "stock": 30, "brand": "渴望"}},
-      {"id": "prod-003", "type": "Product", "name": "耐咬飞盘 大号", "attributes": {"category": "玩具", "pet_type": "狗", "price": 35.0, "stock": 120, "brand": "KONG"}},
-      {"id": "prod-004", "type": "Product", "name": "猫抓板 瓦楞纸", "attributes": {"category": "玩具", "pet_type": "猫", "price": 29.9, "stock": 80, "brand": "得乐"}},
-      {"id": "prod-005", "type": "Product", "name": "热带鱼饲料 500g", "attributes": {"category": "食品", "pet_type": "鱼", "price": 45.0, "stock": 200, "brand": "Tetra"}},
-      {"id": "prod-006", "type": "Product", "name": "宠物香波 500ml", "attributes": {"category": "护理", "pet_type": "狗", "price": 68.0, "stock": 45, "brand": "雪貂"}},
-      {"id": "prod-007", "type": "Product", "name": "猫砂 10L 豆腐砂", "attributes": {"category": "护理", "pet_type": "猫", "price": 39.9, "stock": 60, "brand": "N1"}},
-      {"id": "prod-008", "type": "Product", "name": "鹦鹉谷穗零食", "attributes": {"category": "食品", "pet_type": "鸟", "price": 22.0, "stock": 90, "brand": "Vitakraft"}},
-      {"id": "prod-009", "type": "Product", "name": "狗狗磨牙棒 10支装", "attributes": {"category": "食品", "pet_type": "狗", "price": 55.0, "stock": 70, "brand": "宝路"}},
-      {"id": "prod-010", "type": "Product", "name": "自动饮水机 3L", "attributes": {"category": "窝垫", "pet_type": "猫", "price": 128.0, "stock": 25, "brand": "小佩"}},
-      {"id": "prod-011", "type": "Product", "name": "宠物背包 透气款", "attributes": {"category": "窝垫", "pet_type": "狗", "price": 188.0, "stock": 35, "brand": "Touchdog"}},
-      {"id": "prod-012", "type": "Product", "name": "逗猫棒 羽毛款", "attributes": {"category": "玩具", "pet_type": "猫", "price": 15.0, "stock": 150, "brand": "贵为"}}
-    ],
-    "relations": [
-      {"id": "r-001", "from_node": "store-001", "to_node": "prod-001", "type": "SELLS", "weight": 1.0},
-      {"id": "r-002", "from_node": "store-001", "to_node": "prod-003", "type": "SELLS", "weight": 1.0},
-      {"id": "r-003", "from_node": "store-001", "to_node": "prod-006", "type": "SELLS", "weight": 1.0},
-      {"id": "r-004", "from_node": "store-002", "to_node": "prod-002", "type": "SELLS", "weight": 1.0},
-      {"id": "r-005", "from_node": "store-002", "to_node": "prod-004", "type": "SELLS", "weight": 1.0},
-      {"id": "r-006", "from_node": "store-002", "to_node": "prod-007", "type": "SELLS", "weight": 1.0},
-      {"id": "r-007", "from_node": "store-002", "to_node": "prod-010", "type": "SELLS", "weight": 1.0},
-      {"id": "r-008", "from_node": "store-003", "to_node": "prod-009", "type": "SELLS", "weight": 1.0},
-      {"id": "r-009", "from_node": "store-003", "to_node": "prod-011", "type": "SELLS", "weight": 1.0},
-      {"id": "r-010", "from_node": "store-004", "to_node": "prod-001", "type": "SELLS", "weight": 1.0},
-      {"id": "r-011", "from_node": "store-004", "to_node": "prod-002", "type": "SELLS", "weight": 1.0},
-      {"id": "r-012", "from_node": "store-005", "to_node": "prod-012", "type": "SELLS", "weight": 1.0},
-      {"id": "r-013", "from_node": "store-005", "to_node": "prod-005", "type": "SELLS", "weight": 1.0},
-      {"id": "r-014", "from_node": "store-006", "to_node": "prod-008", "type": "SELLS", "weight": 1.0},
-      {"id": "r-015", "from_node": "store-007", "to_node": "prod-003", "type": "SELLS", "weight": 1.0},
-      {"id": "r-016", "from_node": "store-008", "to_node": "prod-007", "type": "SELLS", "weight": 1.0}
-    ]
-  }
+  "event_types": {}
 }
