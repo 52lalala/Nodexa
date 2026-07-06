@@ -1,0 +1,95 @@
+{
+  "intent": "ride_hailing",
+  "name": "打车服务",
+  "description": "查找附近空闲车辆和预估费用",
+  "params": {
+    "action": {
+      "type": "single_select",
+      "required": true,
+      "prompt": "请选择操作",
+      "options": ["find_car", "estimate_fare"]
+    },
+    "pickup": {
+      "type": "location",
+      "required": true,
+      "prompt": "请输入上车地点"
+    },
+    "dropoff": {
+      "type": "location",
+      "required": false,
+      "prompt": "请输入下车地点",
+      "condition": "action == 'estimate_fare'"
+    },
+    "car_type": {
+      "type": "single_select",
+      "required": false,
+      "prompt": "请选择车型",
+      "options": ["快车", "专车", "拼车", "豪华车"],
+      "default": "快车"
+    }
+  },
+  "node_types": {
+    "Vehicle": {
+      "attributes": ["plate", "type", "status", "location", "capacity"]
+    },
+    "Driver": {
+      "attributes": ["name", "phone", "rating"]
+    },
+    "Station": {
+      "attributes": ["name", "location", "vehicle_count"]
+    }
+  },
+  "relation_types": {
+    "DRIVEN_BY": {
+      "from": "Vehicle",
+      "to": "Driver",
+      "description": "该司机驾驶此车"
+    },
+    "PARKED_AT": {
+      "from": "Vehicle",
+      "to": "Station",
+      "description": "车辆停靠在此站点"
+    }
+  },
+  "event_types": {},
+  "seed_data": {
+    "nodes": [
+      {"id": "vh-001", "type": "Vehicle", "name": "京A12345", "attributes": {"plate": "京A12345", "type": "快车", "status": "idle", "location": {"lat": 39.9100, "lng": 116.4050}, "capacity": 4}},
+      {"id": "vh-002", "type": "Vehicle", "name": "京B67890", "attributes": {"plate": "京B67890", "type": "专车", "status": "idle", "location": {"lat": 39.9150, "lng": 116.4020}, "capacity": 4}},
+      {"id": "vh-003", "type": "Vehicle", "name": "京C11111", "attributes": {"plate": "京C11111", "type": "快车", "status": "busy", "location": {"lat": 39.9080, "lng": 116.4100}, "capacity": 4}},
+      {"id": "vh-004", "type": "Vehicle", "name": "京D22222", "attributes": {"plate": "京D22222", "type": "豪华车", "status": "idle", "location": {"lat": 39.9120, "lng": 116.4070}, "capacity": 4}},
+      {"id": "vh-005", "type": "Vehicle", "name": "沪E33333", "attributes": {"plate": "沪E33333", "type": "快车", "status": "idle", "location": {"lat": 31.2300, "lng": 121.4750}, "capacity": 4}},
+      {"id": "vh-006", "type": "Vehicle", "name": "沪F44444", "attributes": {"plate": "沪F44444", "type": "拼车", "status": "idle", "location": {"lat": 31.2320, "lng": 121.4700}, "capacity": 4}},
+      {"id": "vh-007", "type": "Vehicle", "name": "沪G55555", "attributes": {"plate": "沪G55555", "type": "专车", "status": "busy", "location": {"lat": 31.2250, "lng": 121.4800}, "capacity": 4}},
+      {"id": "vh-008", "type": "Vehicle", "name": "粤A66666", "attributes": {"plate": "粤A66666", "type": "快车", "status": "idle", "location": {"lat": 23.1280, "lng": 113.3280}, "capacity": 4}},
+      {"id": "vh-009", "type": "Vehicle", "name": "粤A77777", "attributes": {"plate": "粤A77777", "type": "专车", "status": "idle", "location": {"lat": 23.1300, "lng": 113.3350}, "capacity": 4}},
+      {"id": "vh-010", "type": "Vehicle", "name": "京H88888", "attributes": {"plate": "京H88888", "type": "拼车", "status": "idle", "location": {"lat": 39.9180, "lng": 116.4000}, "capacity": 4}},
+      {"id": "dr-001", "type": "Driver", "name": "张师傅", "attributes": {"name": "张师傅", "phone": "13900001001", "rating": 4.9}},
+      {"id": "dr-002", "type": "Driver", "name": "李师傅", "attributes": {"name": "李师傅", "phone": "13900001002", "rating": 4.7}},
+      {"id": "dr-003", "type": "Driver", "name": "王师傅", "attributes": {"name": "王师傅", "phone": "13900001003", "rating": 4.6}},
+      {"id": "dr-004", "type": "Driver", "name": "赵师傅", "attributes": {"name": "赵师傅", "phone": "13900001004", "rating": 4.8}},
+      {"id": "dr-005", "type": "Driver", "name": "孙师傅", "attributes": {"name": "孙师傅", "phone": "13900001005", "rating": 4.5}},
+      {"id": "st-001", "type": "Station", "name": "国贸站", "attributes": {"name": "国贸站", "location": {"lat": 39.9090, "lng": 116.4600}, "vehicle_count": 3}},
+      {"id": "st-002", "type": "Station", "name": "陆家嘴站", "attributes": {"name": "陆家嘴站", "location": {"lat": 31.2355, "lng": 121.5060}, "vehicle_count": 2}},
+      {"id": "st-003", "type": "Station", "name": "体育西站", "attributes": {"name": "体育西站", "location": {"lat": 23.1290, "lng": 113.3240}, "vehicle_count": 1}}
+    ],
+    "relations": [
+      {"id": "rr-001", "from_node": "vh-001", "to_node": "dr-001", "type": "DRIVEN_BY", "weight": 1.0},
+      {"id": "rr-002", "from_node": "vh-002", "to_node": "dr-002", "type": "DRIVEN_BY", "weight": 1.0},
+      {"id": "rr-003", "from_node": "vh-003", "to_node": "dr-003", "type": "DRIVEN_BY", "weight": 1.0},
+      {"id": "rr-004", "from_node": "vh-004", "to_node": "dr-001", "type": "DRIVEN_BY", "weight": 1.0},
+      {"id": "rr-005", "from_node": "vh-005", "to_node": "dr-004", "type": "DRIVEN_BY", "weight": 1.0},
+      {"id": "rr-006", "from_node": "vh-006", "to_node": "dr-005", "type": "DRIVEN_BY", "weight": 1.0},
+      {"id": "rr-007", "from_node": "vh-007", "to_node": "dr-004", "type": "DRIVEN_BY", "weight": 1.0},
+      {"id": "rr-008", "from_node": "vh-008", "to_node": "dr-005", "type": "DRIVEN_BY", "weight": 1.0},
+      {"id": "rr-009", "from_node": "vh-009", "to_node": "dr-003", "type": "DRIVEN_BY", "weight": 1.0},
+      {"id": "rr-010", "from_node": "vh-010", "to_node": "dr-002", "type": "DRIVEN_BY", "weight": 1.0},
+      {"id": "rr-011", "from_node": "vh-001", "to_node": "st-001", "type": "PARKED_AT", "weight": 1.0},
+      {"id": "rr-012", "from_node": "vh-002", "to_node": "st-001", "type": "PARKED_AT", "weight": 1.0},
+      {"id": "rr-013", "from_node": "vh-003", "to_node": "st-001", "type": "PARKED_AT", "weight": 1.0},
+      {"id": "rr-014", "from_node": "vh-005", "to_node": "st-002", "type": "PARKED_AT", "weight": 1.0},
+      {"id": "rr-015", "from_node": "vh-006", "to_node": "st-002", "type": "PARKED_AT", "weight": 1.0},
+      {"id": "rr-016", "from_node": "vh-008", "to_node": "st-003", "type": "PARKED_AT", "weight": 1.0}
+    ]
+  }
+}
