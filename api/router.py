@@ -20,7 +20,8 @@ router = APIRouter()
 def get_intents():
     intents = engine.list_intents()
     return IntentsResponse(
-        intents=[IntentItem(**i) for i in intents]
+        instructions="以下是可调用的 Nodexa 服务。选择一个 intent 后，通过 /plugins/{intent} 获取该服务的参数结构，根据用户已提供的信息填充参数，缺少必要信息时向用户询问。",
+        intents=[IntentItem(**i) for i in intents],
     )
 
 

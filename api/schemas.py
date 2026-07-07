@@ -9,6 +9,7 @@ class IntentItem(BaseModel):
 
 
 class IntentsResponse(BaseModel):
+    instructions: str = ""
     intents: list[IntentItem]
 
 
