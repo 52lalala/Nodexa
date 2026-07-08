@@ -20,7 +20,7 @@ router = APIRouter()
 def get_intents():
     intents = engine.list_intents()
     return IntentsResponse(
-        instructions="以下是可调用的 Nodexa 服务。选择一个 intent 后，通过 /plugins/{intent} 获取该服务的参数结构，根据用户已提供的信息填充参数，缺少必要信息时向用户询问。",
+        instructions="以下是可调用的 Nodexa 服务。通过 /tools 获取所有工具的完整定义（含参数结构），直接调用即可。",
         intents=[IntentItem(**i) for i in intents],
     )
 
@@ -40,9 +40,14 @@ def get_plugin(intent: str):
     return plugin
 
 
+@router.get("/tools")
+def get_tools():
+    return engine.build_tools()
+
+
 @router.post("/execute")
 def execute(req: ExecuteRequest, db: Session = Depends(get_db)):
-    result = engine.execute(req.intent, req.params, db)
+    result = engine.execute(req.tool, req.params, db)
     if not result["success"]:
         return ExecuteError(success=False, error=result["error"]).model_dump()
 

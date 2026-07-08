@@ -14,7 +14,7 @@ class IntentsResponse(BaseModel):
 
 
 class ExecuteRequest(BaseModel):
-    intent: str
+    tool: str
     params: dict[str, Any] = Field(default_factory=dict)
 
 
